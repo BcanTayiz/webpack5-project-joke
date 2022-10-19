@@ -1,12 +1,24 @@
-import generateJoke from "./generateJoke";
+
 import './styles/main.scss'
-import laughing from './assets/laughing.svg'
+import keyword from './assets/keyword.jpg'
+import result from './keywordMine';
+import asyncFuncition from './keywordMine';
 
 const laughImg = document.getElementById("laughImg")
-laughImg.src = laughing;
+laughImg.src = keyword;
+const mainText = document.getElementById("textMain")
+let setKeywords = async( ) => {
+    let result =  await asyncFuncition()
+    if(result.length >= 0)
+    mainText.innerHTML = result;
+}
 
-const jokeBtn = document.getElementById('jokeBtn')
-jokeBtn.addEventListener('click',generateJoke)
+const analyzeBtn = document.getElementById("analyzeBtn")
+analyzeBtn.addEventListener('click',e => {
+    console.log("hahahah")
+    setKeywords()
+    mainText.innerHTML = result
+})
 
-generateJoke()
+
 
